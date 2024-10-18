@@ -1243,6 +1243,10 @@ header:hover .owl-next {
     font-size: 30px;
 }
 
+.get-in-touch .icon-details .icon i {
+    transform: none;
+}
+
 .get-in-touch .contact-list .icon-details p {
     font-size: var(--font-lead);
 }
