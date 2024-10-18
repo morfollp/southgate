@@ -19,6 +19,7 @@ body {
 
 a {
     text-decoration: none;
+    display: inline-block;
 }
 
 h1,
@@ -66,14 +67,16 @@ header,
 .btn {
     font-size: var(--font-lead);
     color: var(--white-text);
-    padding: 10px 35px;
+    padding: 18px 45px;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.86, 0.01, 0.15, 0.99);
     display: inline-block;
     position: relative;
-    border-radius: 3px;
+    border-radius: 2px;
     letter-spacing: 1px;
     border: none;
+    text-transform: uppercase;
+    font-size: 15px;
 }
 
 .btn:before {
@@ -376,6 +379,59 @@ header:hover .owl-next {
     box-shadow: 0 10px 30px rgb(0 0 0 / 15%);
 }
 
+.marquee-section {
+    position: relative;
+    padding: 12px 0;
+    background: var(--theme-color);
+}
+
+.marquee-section .marquee {
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    gap: 0;
+}
+
+.marquee-section .marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 0px));
+    }
+}
+
+.marquee-content i,
+.marquee-content .text {
+    color: var(--white-text);
+    font-weight: 700;
+    position: relative;
+}
+
+.marquee-content i {
+    font-size: 30px;
+    line-height: 1em;
+    margin-right: 50px;
+    transition: all 0.3s ease;
+    transform: rotate(45deg);
+}
+
+.marquee-content .text {
+    font-size: 25px;
+    line-height: 1.3;
+    padding-right: 50px;
+    text-transform: uppercase;
+}
+
 .home-service {
     background-image: linear-gradient(
             45deg,
@@ -401,7 +457,7 @@ header:hover .owl-next {
     font-weight: var(--font-weight);
 }
 
-.about-features-list .icon {
+.icon-details .icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -411,15 +467,37 @@ header:hover .owl-next {
     align-items: center;
     margin-right: 30px;
     font-size: 25px;
+    transition: all 0.3s ease;
+    color: var(--theme-color);
+}
+
+.icon-details .icon i {
+    transform: rotate(45deg);
+}
+
+.icon-details:hover .icon {
+    background-color: #0099ff;
+    border-color: #0099ff;
+    transform: scaleX(-1);
+    color: #fff;
+}
+
+.about-features-list .icon-details h5 {
+    font-weight: var(--font-weight);
     transition: all 0.3s ease-in-out;
 }
 
-.about-features-list .icon:hover {
-    box-shadow: 0 10px 30px rgba(18, 145, 219, 0.3);
+.icon-details h5:hover {
+    color: #0099ff;
+    cursor: pointer;
 }
 
-.icon-details h5 {
-    font-weight: 600;
+.point-wrapper .list-features .arrow-icon {
+    background-color: #0099ff;
+    color: #fff;
+    font-size: 22px;
+    width: 23px;
+    height: 23px;
 }
 
 .item-card {
@@ -447,15 +525,44 @@ header:hover .owl-next {
 .item-card .card-body .card-inner {
     background-color: var(--white-text);
     border-radius: 8px 8px 0 0;
-    padding: 20px 25px 0;
+    padding: 0px;
     margin-top: -50px;
     position: relative;
     border-top: 4px solid var(--theme-color);
 }
 
+.card-inner .head {
+    background-color: #ecf7ff;
+    padding: 5px;
+    border-radius: 5px;
+    padding: 12px 20px;
+}
+
+.item-card .card-body .card-inner .card-inner-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    font-size: 30px;
+    color: var(--theme-color);
+}
+
+.card-inner .head:hover .card-inner-icon {
+    background-color: var(--theme-color);
+    color: var(--white-text);
+}
+
 .item-card .card-body .card-inner h5 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: var(--font-weight);
+}
+
+.item-card .card-body .card-inner h5 a {
+    color: #111;
 }
 
 .card-image {
@@ -578,6 +685,11 @@ header:hover .owl-next {
     color: var(--white-text);
     font-size: 25px;
     margin-right: 20px;
+    transition: all 0.3s ease-in;
+}
+
+.call-section:hover .call-icon {
+    transform: scaleX(-1);
 }
 
 .countries-offer {
@@ -644,7 +756,7 @@ header:hover .owl-next {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.country-item:hover:hover .item-image-body .img-overlay-icon {
+.country-item:hover .item-image-body .img-overlay-icon {
     bottom: 40%;
 }
 
@@ -656,13 +768,13 @@ header:hover .owl-next {
     border-radius: 3px;
     width: 10rem;
     text-align: center;
-    padding: 5px;
+    padding: 10px 15px;
     margin: 0 auto;
     cursor: pointer;
     transition: all 0.4s ease-in-out;
 }
 
-.fig-caption:hover {
+.country-item:hover .fig-caption {
     background-color: #0d1a36;
     color: #fff;
 }
@@ -762,6 +874,16 @@ header:hover .owl-next {
     right: 0;
 }
 
+.white-card .avtar img {
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.white-card:hover .avtar img {
+    transform: scale(1.1);
+}
+
 .white-card .content {
     min-height: 160px;
 }
@@ -770,18 +892,12 @@ header:hover .owl-next {
     position: relative;
     overflow: hidden;
     padding-top: 50px;
-    margin-top: 50px;
+    background: #fdfdfd;
 }
 
-.count::after {
-    content: '';
-    background: url(../images/count-bg.png) no-repeat;
-    width: 280px;
-    height: auto;
-    position: absolute;
-    left: 25px;
-    top: 0px;
-    bottom: 0;
+.counter-bg-img {
+    position: relative;
+    bottom: -20px;
 }
 
 .counter-grid {
@@ -790,14 +906,14 @@ header:hover .owl-next {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 .count-wrapper h4 {
-    font-size: 55px;
+    font-size: 45px;
     font-weight: var(--font-weight);
 }
 
 .count-wrapper p {
     color: var(--theme-color);
     font-weight: var(--weight-medium);
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .process {
@@ -885,6 +1001,11 @@ header:hover .owl-next {
     font-size: 25px;
     margin-right: 20px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in;
+}
+
+.infolist:hover .icon {
+    transform: scaleX(-1);
 }
 
 .footer-inner {
@@ -907,6 +1028,15 @@ header:hover .owl-next {
 
 .footer-menu li a:hover {
     color: var(--theme-color);
+}
+
+.footer-menu li span {
+    display: inline-flex;
+}
+
+.footer-menu li span i {
+    color: var(--theme-color);
+    padding-right: 10px;
 }
 
 .social-list span {

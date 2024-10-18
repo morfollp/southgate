@@ -6,7 +6,9 @@ $('.slider-main').owlCarousel({
     mouseDrag: false,
     autoplay: true,
     autoWidth: false,
-    animateOut: 'slideOutUp',
+    // animateOut: 'fadeIn',
+    autoplayTimeout: 6500,
+    smartSpeed: 450,
     responsive: {
         0: {
             items: 1
