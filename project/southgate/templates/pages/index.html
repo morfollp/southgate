@@ -1,0 +1,9 @@
+<html>
+<h1>success
+	{% for country in countries %}
+	<h1>
+{{ country.country_name }}
+{{ country.faq.question }}
+{{ country.faq.answer }}
+</h1>
+{% endfor %}
