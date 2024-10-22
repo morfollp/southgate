@@ -280,6 +280,14 @@ header:hover .owl-next {
     color: #fff;
     border-radius: 8px;
     font-size: 25px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+    z-index: 5;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+    top: 50%;
 }
 
 .nav-link {
@@ -461,7 +469,7 @@ header:hover .owl-next {
 }
 
 .home-service .content {
-    min-height: 140px;
+    min-height: 328px;
 }
 
 .subhead {
@@ -533,7 +541,7 @@ header:hover .owl-next {
     position: relative;
     overflow: hidden;
     min-height: 200px;
-    max-height: 235px;
+    max-height: 225px;
 }
 
 .item-card .card-body {
@@ -1128,7 +1136,7 @@ header:hover .owl-next {
 .inner-banner {
     position: relative;
     overflow: hidden;
-    background-size: cover;
+    background-size: cover !important;
     background-repeat: no-repeat;
     height: 50vh;
     width: 100%;
@@ -1640,20 +1648,11 @@ header:hover .owl-next {
     header .item .caption .header-content {
         max-width: 100%;
     }
-    .about-pic-thumbnail {
-        position: relative;
-    }
-    .pic-banner .about-pic-full {
-        width: 100%;
-    }
     .mainhead {
         font-size: 30px;
     }
     .about-features-list {
         flex-direction: column;
-    }
-    .gradient-box {
-        margin-bottom: 100px;
     }
     .get-in-touch,
     .home-about-content {
@@ -1677,9 +1676,11 @@ header:hover .owl-next {
     .process-card {
         margin-bottom: 25px;
     }
-    .infolist {
-        margin-bottom: 20px;
-        padding: 0 20px;
+    .team .team-card {
+        margin-bottom: 60px;
+    }
+    .count {
+        padding-top: 0;
     }
     .video-bg .video-caption h1 {
         font-size: 30px;
@@ -1693,6 +1694,52 @@ header:hover .owl-next {
     }
     .service-tab .nav {
         margin-bottom: 25px;
+        max-width: 100%;
+        max-height: 350px;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+    }
+    .navbar-collapse {
+        background: var(--bg-dark);
+        border-radius: 8px;
+    }
+    .tab-content .banner img {
+        height: auto;
+    }
+    .counter-bg-img {
+        bottom: 0;
+    }
+    .counter-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .service-tab .add-banner {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .gradient-box {
+        margin-bottom: 100px;
+    }
+    header .item .caption .header-content {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .infolist {
+        margin-bottom: 20px;
+        padding: 0 20px;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .infolist .icon {
+        margin-bottom: 20px;
+    }
+    .testimonials .owl-nav,
+    .countries-offer .owl-nav {
+        width: 30%;
     }
 }
 
@@ -1709,10 +1756,33 @@ header:hover .owl-next {
         transform: scaleX(1);
     }
 }
+@media (max-width: 576px) {
+    .footer-about {
+        text-align: center;
+    }
+    .social-list {
+        text-align: center;
+    }
+    .col-left-bg {
+        padding: 80px 20px;
+    }
+    .quick-facts .facts-list {
+        grid-template-columns: repeat(1, auto);
+    }
+    .pic-banner .about-pic-full {
+        width: 100%;
+    }
+    .about-pic-thumbnail {
+        position: relative;
+    }
+}
 
 @media (min-width: 576px) {
     .modal-dialog {
         max-width: 800px;
         margin: 1.75rem auto;
+    }
+    .footer-info-box {
+        padding: 25px 5px;
     }
 }
