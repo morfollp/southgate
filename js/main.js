@@ -84,6 +84,10 @@ jQuery(document).ready(function ($) {
             }
         }
     });
+    var owl = $('.owl-carousel');
+    $('.video-block').on('click', function () {
+        owl.trigger('stop.owl.autoplay');
+    });
 });
 
 // counter

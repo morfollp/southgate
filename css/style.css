@@ -33,7 +33,7 @@ h6 {
 }
 
 p {
-    color: #444;
+    color: #1f1f1f;
     margin-bottom: 0;
 }
 
@@ -72,11 +72,15 @@ header,
     transition: all 0.4s cubic-bezier(0.86, 0.01, 0.15, 0.99);
     display: inline-block;
     position: relative;
-    border-radius: 2px;
+    border-radius: 8px;
     letter-spacing: 1px;
     border: none;
     text-transform: uppercase;
     font-size: 15px;
+}
+
+.btn-sm {
+    padding: 10px 20px;
 }
 
 .btn:before {
@@ -269,6 +273,15 @@ header:hover .owl-next {
     opacity: 1;
 }
 
+.whtsapp-icon {
+    width: 50px;
+    height: 50px;
+    background: #29a71a;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 25px;
+}
+
 .nav-link {
     color: var(--white-text);
     font-size: var(--font-lead);
@@ -329,6 +342,7 @@ header:hover .owl-next {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease;
     cursor: pointer;
+    border-radius: 8px;
 }
 
 .gradient-card::after {
@@ -355,7 +369,8 @@ header:hover .owl-next {
 }
 
 .gradient-box-content {
-    padding-left: 70px;
+    padding-left: 65px;
+    min-height: 155px;
 }
 
 .gradient-card h3 {
@@ -367,7 +382,7 @@ header:hover .owl-next {
 }
 
 .pic-banner .about-pic-full {
-    width: 70%;
+    width: 80%;
     position: relative;
     overflow: hidden;
 }
@@ -445,6 +460,10 @@ header:hover .owl-next {
     background-size: cover;
 }
 
+.home-service .content {
+    min-height: 140px;
+}
+
 .subhead {
     color: var(--gray-text-varient);
     font-size: var(--font-lead);
@@ -513,7 +532,7 @@ header:hover .owl-next {
 .item-card .item-card-image {
     position: relative;
     overflow: hidden;
-    min-height: 230px;
+    min-height: 200px;
     max-height: 235px;
 }
 
@@ -529,6 +548,7 @@ header:hover .owl-next {
     margin-top: -50px;
     position: relative;
     border-top: 4px solid var(--theme-color);
+    min-height: 345px;
 }
 
 .card-inner .head {
@@ -585,7 +605,7 @@ header:hover .owl-next {
     content: '';
     z-index: 1;
 }
-
+.add-banner:hover .card-image::after,
 .team-card:hover .card-image::after,
 .about-pic-full:hover .card-image::after,
 .item-card:hover .card-image::after {
@@ -594,6 +614,7 @@ header:hover .owl-next {
     background-color: transparent;
 }
 
+.add-banner:hover .card-image img,
 .team-card:hover .card-image img,
 .about-pic-full:hover .card-image img,
 .item-card:hover .card-image img {
@@ -847,6 +868,21 @@ header:hover .owl-next {
     transition: all 0.3s ease;
 }
 
+.white-card .video-block {
+    width: 50px;
+    height: 50px;
+    background-color: var(--theme-color);
+    border-radius: 50%;
+    color: var(--white-text);
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.white-card .video-block:hover {
+    box-shadow: 0 0 49px rgba(0, 68, 186, 0.7);
+}
+
 .testimonials .client-feedback {
     padding-top: 70px;
     padding-bottom: 25px;
@@ -893,11 +929,29 @@ header:hover .owl-next {
     overflow: hidden;
     padding-top: 50px;
     background: #fdfdfd;
+    z-index: 0;
 }
 
+/* .count::before {
+    content: '';
+    background-color: #efefef;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 35%;
+    z-index: -1;
+} */
 .counter-bg-img {
     position: relative;
-    bottom: -20px;
+    bottom: -15px;
+    /* width: 35%;
+    left: 0;
+    top: 0; */
+}
+
+.counter-bg-img img {
+    border-radius: 7px;
 }
 
 .counter-grid {
@@ -988,7 +1042,7 @@ header:hover .owl-next {
 .footer-info-box {
     background-color: var(--theme-color);
     border-radius: 5px;
-    padding: 25px 0;
+    padding: 25px 30px;
     position: relative;
     z-index: 2;
 }
@@ -1061,6 +1115,14 @@ header:hover .owl-next {
 
 .social-list span:hover a {
     color: var(--theme-color);
+}
+
+.info-details a {
+    transition: all 0.3s ease;
+}
+
+.info-details a:hover {
+    text-decoration: underline;
 }
 
 .inner-banner {
@@ -1271,7 +1333,7 @@ header:hover .owl-next {
     height: 60px;
     margin-bottom: 10px;
     text-align: left;
-    padding: 15px 20px 17px 50px;
+    padding: 15px 20px 17px 42px;
 }
 
 .service-tab .nav-link:after {
@@ -1335,7 +1397,7 @@ header:hover .owl-next {
 
 .accordion-button {
     font-size: 20px;
-    font-weight: var(--weight-medium);
+    font-weight: var(--font-weight);
 }
 
 .accordion-button:not(.collapsed) {
@@ -1360,6 +1422,215 @@ header:hover .owl-next {
 .accordion-button:not(.collapsed)::after {
     background-image: url('../images/dash.svg');
     background-repeat: no-repeat;
+}
+
+.service-tab .add-banner {
+    background: #f6f6f6;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.add-banner .add-banner-figure {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-tab .add-banner-caption {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    flex-direction: column;
+    z-index: 3;
+}
+
+.carrer-listing .accordion-button:not(.collapsed) {
+    background: #fff;
+    color: #111;
+}
+
+.carrer-listing .accordion-button::after {
+    background-position: center center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background-color: #ddd;
+}
+
+.carrer-listing .accordion-button:not(.collapsed)::after {
+    background-color: var(--theme-color);
+}
+
+.country-white-card {
+    position: relative;
+    padding: 20px 25px;
+    background-color: #fff;
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.country-white-card h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    font-size: 22px;
+    font-weight: var(--weight-medium);
+}
+
+.tab-content .banner {
+    max-height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.tab-content .banner::after {
+    content: '';
+    background: #131313;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.4;
+}
+
+.tab-content .banner img {
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+}
+
+.faq-session {
+    border-top: 1px solid #d7d7d7;
+}
+
+.carrer-list-wrapper .career-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all 0.7s ease-in;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    min-height: 250px;
+    max-height: 250px;
+}
+
+.carrer-list-wrapper .career-box img {
+    height: 100%;
+    width: 100%;
+    min-height: 250px;
+    object-fit: cover;
+}
+
+.carrer-list-wrapper .career-box::before {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    content: '';
+    z-index: 1;
+    opacity: 0.6;
+    background: #3b3d4a;
+    mix-blend-mode: multiply;
+}
+
+.job-list-item:hover .career-box {
+    transform: translateY(-4px);
+}
+
+.carrer-list-wrapper .career-box::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    content: '';
+    top: 0;
+    z-index: 1;
+    opacity: 0;
+    background: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(30%, #000),
+        to(transparent)
+    );
+    background: linear-gradient(180deg, #000 30%, transparent);
+}
+
+.job-list-item {
+    margin-bottom: 25px;
+}
+
+.job-list-item:hover .career-box::after {
+    opacity: 0.75;
+}
+
+.career-box .job-caption {
+    padding: 1.2rem;
+    position: absolute;
+    top: 10px;
+    z-index: 2;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.career-box .job-caption h2 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.content-section .banner .title {
+    position: absolute;
+    top: 25px;
+    left: 50px;
+    color: #fff;
+    z-index: 1;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.jobList {
+    max-height: 252px;
+    overflow: hidden;
+    position: relative;
+    transition: max-height 0.4s ease;
+}
+
+.overflow {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.overflow[data-state='visible'] {
+    display: block;
+}
+
+.quick-facts .facts-list {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 0 3em;
+}
+
+.quick-facts .facts-list li {
+    padding-bottom: 15px;
 }
 
 @media (max-width: 768px) {
@@ -1436,5 +1707,12 @@ header:hover .owl-next {
     .navbar-nav .nav-link.active:after,
     .navbar-nav .nav-link.show:after {
         transform: scaleX(1);
+    }
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 800px;
+        margin: 1.75rem auto;
     }
 }
