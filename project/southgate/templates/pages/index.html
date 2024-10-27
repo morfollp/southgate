@@ -361,7 +361,7 @@
                     {% endfor %}
                    
                     <div class="col-12 text-center">
-                        <a href="#" class="btn btn-theme mt-5"
+                        <a href="{% url 'servicedetails' service_title='freelance' servicefaq_service=1 %}" class="btn btn-theme mt-5"
                             >Read More</a
                         >
                     </div>
@@ -531,7 +531,7 @@
                                 </div>
                             </div>
 
-                            <div class="fig-caption mt-5">{{ country.country_name }}
+                            <div class="fig-caption mt-5">{{ country.name }}
                             </div>
                         </div>
                         {% endfor %}
@@ -551,28 +551,26 @@
                         </div>
                     </div>
                     <div class="client-feedback owl-carousel owl-theme">
+                        {% for testimonial in testimonials %}
                         <div class="white-card text-center">
                             <div class="avtar">
                                 <img
-                                    src="{% static 'images/profile-1.jpg' %}"
+                                    src="{{ testimonial.profile_image.url }}"
                                     alt="User"
                                     class="img-fluid"
                                 />
                             </div>
                             <div class="content">
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the
-                                    printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy
-                                    text ever since the  
+                            {{ testimonial.description }}
                                 </p>
                             </div>
                             <div
                                 class="d-flex justify-content-around align-items-center"
                             >
                                 <div class="white-card-footer mt-4">
-                                    <h5 class="themecolor">John Smith</h5>
-                                    <p>CEO</p>
+                                    <h5 class="themecolor">{{ testimonial.name }}</h5>
+                                    <p>{{ testimonial.title }}</p>
                                 </div>
                                 <div class="video-block flex-center">
                                     <div
@@ -585,77 +583,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="white-card text-center">
-                            <div class="avtar">
-                                <img
-                                    src="images/profile-2.jpg"
-                                    alt="User"
-                                    class="img-fluid"
-                                />
-                            </div>
-                            <div class="content">
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the
-                                    printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy
-                                    text ever since the  Lorem Ipsum has been
-                                    the industry's standardLorem Ipsum has been
-                                    the industry's standard
-                                </p>
-                            </div>
-                            <div
-                                class="d-flex justify-content-around align-items-center"
-                            >
-                                <div class="white-card-footer mt-4">
-                                    <h5 class="themecolor">John Smith</h5>
-                                    <p>CEO</p>
-                                </div>
-                                <div class="video-block flex-center">
-                                    <div
-                                        class="flex-center"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#videoModal"
-                                    >
-                                        <i class="bi bi-play"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="white-card text-center">
-                            <div class="avtar">
-                                <img
-                                    src="images/profile-3.jpg"
-                                    alt="User"
-                                    class="img-fluid"
-                                />
-                            </div>
-                            <div class="content">
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the
-                                    printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy
-                                    text ever since the  Lorem Ipsum has been
-                                    the industry's standard
-                                </p>
-                            </div>
-                            <div
-                                class="d-flex justify-content-around align-items-center"
-                            >
-                                <div class="white-card-footer mt-4">
-                                    <h5 class="themecolor">John Smith</h5>
-                                    <p>CEO</p>
-                                </div>
-                                <div class="video-block flex-center">
-                                    <div
-                                        class="flex-center"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#videoModal"
-                                    >
-                                        <i class="bi bi-play"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

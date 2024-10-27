@@ -5,7 +5,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
-    path('securelogin/', admin.site.urls),
     path('pages/', include('pages.urls')),
+    path('securelogin/', admin.site.urls),
+    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

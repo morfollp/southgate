@@ -1,99 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-        />
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-            crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="css/style.css" />
-        <title>Southgate Immigration</title>
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg fixed-top py-4">
-                <div class="container">
-                    <a class="navbar-brand" href="index.html">Logo</a>
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span class="navbar-toggler-icon"
-                            ><i class="bi bi-bar-chart"></i
-                        ></span>
-                    </button>
-                    <div
-                        class="collapse navbar-collapse"
-                        id="navbarSupportedContent"
-                    >
-                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a
-                                    class="nav-link"
-                                    aria-current="page"
-                                    href="index.html"
-                                    >Home</a
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="aboutus.html"
-                                    >About Us</a
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="services.html"
-                                    >Services</a
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="career.html"
-                                    >Careers</a
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contactus.html"
-                                    >Contact Us</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
             <section
                 class="inner-banner flex-center"
-                style="background: url(./images/banner-about.png)"
+                style="background: url(/static/images/banner-about.png)"
             >
                 <div class="inner-title">
                     <h1>About Us</h1>
@@ -113,6 +23,7 @@
                 </div>
             </section>
         </header>
+
         <section class="about-section py-5">
             <div class="container">
                 <div class="row py-5">
@@ -121,7 +32,7 @@
                             <div class="about-pic-full">
                                 <div class="card-image">
                                     <img
-                                        src="images/about-left.png"
+                                        src="{% static 'images/about-left.png' %}"
                                         alt=""
                                         class="img-fluid"
                                     />
@@ -129,7 +40,7 @@
                             </div>
                             <div class="about-pic-thumbnail">
                                 <img
-                                    src="images/about-left-thumb.png"
+                                    src="{% static 'images/about-left-thumb.png' %}"
                                     alt=""
                                     class="img-fluid"
                                 />
@@ -220,11 +131,13 @@
                     </div>
                 </div>
                 <div class="row pb-lg-5 mb-lg-5">
+                    {% for service in services %}
                     <div class="col-lg-4">
+                        
                         <div class="item-card">
                             <div class="item-card-image card-image">
                                 <img
-                                    src="images/recruitment-services.jpg"
+                                    src="{{ service.service_image.url }}"
                                     alt="Service Pic"
                                     class="img-fluid"
                                 />
@@ -235,7 +148,7 @@
                                         class="head d-flex align-items-center justify-content-between"
                                     >
                                         <h5>
-                                            <a href="#">Recruitment services</a>
+                                            <a href="#">{{ service.title }}</a>
                                         </h5>
                                         <div class="card-inner-icon">
                                             <i class="bi bi-passport"></i>
@@ -243,110 +156,15 @@
                                     </div>
                                     <div class="content pt-3">
                                         <p>
-                                            At South Gate Immigration, we
-                                            specialize in job placement services
-                                            for both skilled and unskilled
-                                            workers, connecting them with
-                                            reputable employers worldwide. Our
-                                            extensive network across Europe
-                                            opens the door to a diverse array of
-                                            job opportunities, carefully
-                                            tailored to match each individual's
-                                            expertise and experience. Whether
-                                            you're seeking your fi rst job
-                                            abroad or looking to advance your
-                                            career, we are here to support you
-                                            every step of the way.
+                                            {{ service.description }}
                                         </p>
                                     </div>
                                 </div>
                             </div>
+                      
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="item-card">
-                            <div class="item-card-image card-image">
-                                <img
-                                    src="images/visa-facilitation-services.jpg"
-                                    alt="Service Pic"
-                                    class="img-fluid"
-                                />
-                            </div>
-                            <div class="card-body">
-                                <div class="card-inner">
-                                    <div
-                                        class="head d-flex align-items-center justify-content-between"
-                                    >
-                                        <h5>
-                                            <a href="#">Work visa assistance</a>
-                                        </h5>
-                                        <div class="card-inner-icon">
-                                            <i class="bi bi-passport"></i>
-                                        </div>
-                                    </div>
-                                    <div class="content pt-3">
-                                        <p>
-                                            Navigating the complexities of work
-                                            visa applications can be daunting,
-                                            but at South Gate Immigration, we
-                                            make it simple. Our team provides
-                                            expert guidance to streamline the
-                                            process, ensuring that all
-                                            documentation and legal requirements
-                                            are effi ciently handled. We are
-                                            committed to helping you secure your
-                                            work visa with ease, allowing you to
-                                            focus on your exciting new
-                                            opportunity abroad.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="item-card">
-                            <div class="item-card-image card-image">
-                                <img
-                                    src="images/visiting-visa.jpg"
-                                    alt="Service Pic"
-                                    class="img-fluid"
-                                />
-                            </div>
-                            <div class="card-body">
-                                <div class="card-inner">
-                                    <div
-                                        class="head d-flex align-items-center justify-content-between"
-                                    >
-                                        <h5>
-                                            <a href="#"
-                                                >Visiting visa services</a
-                                            >
-                                        </h5>
-                                        <div class="card-inner-icon">
-                                            <i class="bi bi-passport"></i>
-                                        </div>
-                                    </div>
-                                    <div class="content pt-3">
-                                        <p>
-                                            Whether you're planning a short-term
-                                            visit or an extended stay abroad,
-                                            our visiting visa services cater to
-                                            all your travel needs. We assist you
-                                            with document preparation,
-                                            application submission, and tracking
-                                            to ensure a seamless visa process.
-                                            At South Gate Immigration, we’re
-                                            dedicated to making your journey as
-                                            smooth and stress-free as possible,
-                                            so you can focus on enjoying your
-                                            travels.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                          {% endfor %}
                     <div class="col-12 text-center">
                         <a href="services.html" class="btn btn-theme mt-5"
                             >Read More</a
@@ -358,7 +176,7 @@
         <section
             class="video-bg py-5"
             style="
-                background: url(./images/video-banner.png) no-repeat center
+                background: url(/static/images/video-banner.png) no-repeat center
                     center;
             "
         >
@@ -399,61 +217,21 @@
                         </div>
                     </div>
                     <div class="owl-carousel owl-theme country-list">
+                        {% for country in countries %}
                         <div class="country-item">
                             <div class="item-image-body">
                                 <img
-                                    src="images/france.jpg"
-                                    alt="France"
+                                    src="{{ country.country_image.url }}"
+                                    alt="{{ country.country_name }}"
                                     class="img-fluid"
                                 />
                                 <div class="img-overlay-icon flex-center">
                                     <i class="bi bi-arrow-up-right"></i>
                                 </div>
                             </div>
-                            <div class="fig-caption mt-5">France</div>
+                            <div class="fig-caption mt-5">{{ country.name }}</div>
                         </div>
-                        <!-- -----------2------------ -->
-                        <div class="country-item">
-                            <div class="item-image-body">
-                                <img
-                                    src="images/germany.jpg"
-                                    alt="France"
-                                    class="img-fluid"
-                                />
-                                <div class="img-overlay-icon flex-center">
-                                    <i class="bi bi-arrow-up-right"></i>
-                                </div>
-                            </div>
-                            <div class="fig-caption mt-5">Germany</div>
-                        </div>
-                        <!-- -----------3------------ -->
-                        <div class="country-item">
-                            <div class="item-image-body">
-                                <img
-                                    src="images/usa.jpg"
-                                    alt="France"
-                                    class="img-fluid"
-                                />
-                                <div class="img-overlay-icon flex-center">
-                                    <i class="bi bi-arrow-up-right"></i>
-                                </div>
-                            </div>
-                            <div class="fig-caption mt-5">United States</div>
-                        </div>
-                        <!-- -----------4------------ -->
-                        <div class="country-item">
-                            <div class="item-image-body">
-                                <img
-                                    src="images/australia.jpg"
-                                    alt="France"
-                                    class="img-fluid"
-                                />
-                                <div class="img-overlay-icon flex-center">
-                                    <i class="bi bi-arrow-up-right"></i>
-                                </div>
-                            </div>
-                            <div class="fig-caption mt-5">Australia</div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -472,7 +250,7 @@
                             <div class="team-card">
                                 <div class="card-image">
                                     <img
-                                        src="images/team-01.jpg"
+                                        src="{% static 'images/team-01.jpg' %}"
                                         alt="Team"
                                         class="img-fluid"
                                     />
@@ -489,7 +267,7 @@
                             <div class="team-card">
                                 <div class="card-image">
                                     <img
-                                        src="images/team-02.jpg"
+                                        src="{% static 'images/team-02.jpg' %}"
                                         alt="Team"
                                         class="img-fluid"
                                     />
@@ -506,7 +284,7 @@
                             <div class="team-card">
                                 <div class="card-image">
                                     <img
-                                        src="images/team-03.jpg"
+                                        src="{% static 'images/team-03.jpg' %}"
                                         alt="Team"
                                         class="img-fluid"
                                     />
@@ -527,7 +305,7 @@
                     <div class="col-lg-4">
                         <div class="counter-bg-img">
                             <img
-                                src="images/count-bg2.jpg"
+                                src="{% static 'images/count-bg2.jpg' %}"
                                 alt="counter-bg"
                                 class="img-fluid"
                             />
@@ -583,258 +361,4 @@
                 </div>
             </div>
         </section>
-
-        <!-- footer -->
-        <footer class="footer pt-5">
-            <div class="container">
-                <div class="row pt-5">
-                    <div class="col-12">
-                        <div class="footer-info-box shadow-lg">
-                            <div class="col-lg-12">
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="infolist d-flex">
-                                            <div class="icon flex-center">
-                                                <i class="bi bi-telephone"></i>
-                                            </div>
-                                            <div class="info-details">
-                                                <p class="fw-bold text-white">
-                                                    Call Us Anytime
-                                                </p>
-                                                <p class="lead text-white">
-                                                    +91 79075 96575
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="infolist d-flex">
-                                            <div class="icon flex-center">
-                                                <i class="bi bi-envelope"></i>
-                                            </div>
-                                            <div class="info-details">
-                                                <p class="fw-bold text-white">
-                                                    Send Mail
-                                                </p>
-                                                <p class="lead text-white">
-                                                    <a
-                                                        class="text-white"
-                                                        href="mailto:info@southgateimmigration.com"
-                                                        >info@southgateimmigration.com</a
-                                                    >
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <div class="infolist d-flex">
-                                            <div class="icon flex-center">
-                                                <i class="bi bi-geo-alt"></i>
-                                            </div>
-                                            <div class="info-details">
-                                                <p class="fw-bold text-white">
-                                                    Our Address
-                                                </p>
-                                                <p class="lead text-white">
-                                                    South Gate Immigration
-                                                    Building<br />
-                                                    No: 60/602 3rd Floor
-                                                    <br />Beejay Tower, Chittoor
-                                                    Road<br />
-                                                    Rajaji Junction, Kochi<br />
-                                                    Ernakulam, Kerala - 682035.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row footer-inner pb-5">
-                    <div class="col-lg-4 pe-lg-5">
-                        <div class="footer-about pt-5">
-                            <p class="text-white">
-                                We are dedicated to making your immigration
-                                journey seamless and successful. For
-                                personalized support or inquiries, feel free to
-                                contact us. Your future awaits. Let’s embark on
-                                this journey together!
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="footer-menu pt-5">
-                            <h5 class="mb-3">Quick Links</h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <span
-                                        ><i
-                                            class="bi bi-chevron-double-right"
-                                        ></i></span
-                                    ><a href="index.html">Home</a>
-                                </li>
-                                <li>
-                                    <span
-                                        ><i
-                                            class="bi bi-chevron-double-right"
-                                        ></i></span
-                                    ><a href="aboutus.html">About Us</a>
-                                </li>
-                                <li>
-                                    <span
-                                        ><i
-                                            class="bi bi-chevron-double-right"
-                                        ></i></span
-                                    ><a href="services.html">Services</a>
-                                </li>
-                                <li>
-                                    <span
-                                        ><i
-                                            class="bi bi-chevron-double-right"
-                                        ></i></span
-                                    ><a href="career.html">Careers</a>
-                                </li>
-                                <li>
-                                    <span
-                                        ><i
-                                            class="bi bi-chevron-double-right"
-                                        ></i></span
-                                    ><a href="contactus.html">Contact Us</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-6">
-                        <div class="footer-menu pt-5">
-                            <h5 class="mb-3">Services</h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <span
-                                        ><i
-                                            class="bi bi-chevron-double-right"
-                                        ></i></span
-                                    ><a href="index.html">Home</a>
-                                </li>
-                                <li>
-                                    <span
-                                        ><i
-                                            class="bi bi-chevron-double-right"
-                                        ></i></span
-                                    ><a href="aboutus.html">About Us</a>
-                                </li>
-                                <li>
-                                    <span
-                                        ><i
-                                            class="bi bi-chevron-double-right"
-                                        ></i></span
-                                    ><a href="services.html">Services</a>
-                                </li>
-                                <li>
-                                    <span
-                                        ><i
-                                            class="bi bi-chevron-double-right"
-                                        ></i></span
-                                    ><a href="career.html">Careers</a>
-                                </li>
-                                <li>
-                                    <span
-                                        ><i
-                                            class="bi bi-chevron-double-right"
-                                        ></i></span
-                                    ><a href="contactus.html">Contact Us</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="footer-menu social-list pt-5">
-                            <h5 class="mb-3">Follow Us</h5>
-                            <span class="flex-center"
-                                ><a href="#"><i class="bi bi-facebook"></i></a
-                            ></span>
-                            <span class="flex-center"
-                                ><a href="#"><i class="bi bi-instagram"></i></a
-                            ></span>
-                            <span class="flex-center"
-                                ><a href="#"><i class="bi bi-twitter-x"></i></a
-                            ></span>
-                            <span class="flex-center"
-                                ><a href="#"><i class="bi bi-linkedin"></i></a
-                            ></span>
-                            <span class="flex-center"
-                                ><a href="#"><i class="bi bi-youtube"></i></a
-                            ></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="col-12">
-                    <div class="copy-right py-3">
-                        <small>&copy; Copyrights reserved, 2024</small>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- whatsapp -->
-        <div class="whtsapp-icon">
-            <a
-                class="text-white flex-center h-100"
-                href="https://wa.me/7907596575
-        
-                    "
-                target="_blank"
-                class="whatsapp-float"
-                ><i class="bi bi-whatsapp"></i>
-            </a>
-        </div>
-        <!-- modal -->
-        <div
-            class="modal fade video-modal"
-            id="videoModal"
-            tabindex="-1"
-            aria-labelledby="videoModalLabel"
-            aria-hidden="true"
-        >
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                        >
-                            <i class="bi bi-x"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Video element -->
-                        <div class="ratio ratio-16x9">
-                            <iframe
-                                class="embed-responsive-item"
-                                src="video/visa.mp4"
-                                allowscriptaccess="always"
-                                allow="autoplay"
-                            ></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"
-        ></script>
-        <script src="js/main.js"></script>
-
-        <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    --></body>
-</html>
+{% endblock %}

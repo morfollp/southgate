@@ -7,20 +7,9 @@ from datetime import datetime
 
 
 # Create your models here.
-class Faq(models.Model):
-    title=models.CharField(max_length=50, unique= True)
-    question= models.TextField(max_length= 5000, blank= False)
-    answer= models.TextField(max_length= 5000, blank= False)
-
-    class Meta:
-        verbose_name= 'Faq' #editing name in admin panel
-        verbose_name_plural= 'Faq(s)' #For printing Categories instead of Categorys
-    def __str__(self):
-        return self.title
-
 
 class Country(models.Model):
-    country_name=models.CharField(max_length=50, unique= True)
+    name=models.CharField(max_length=50, unique= True)
     slug= models.SlugField(max_length= 100, unique= True)
     country_description= models.TextField(max_length= 5000, blank= True)
     # capital= models.TextField(max_length= 255, blank= True)
@@ -36,16 +25,16 @@ class Country(models.Model):
     # natural_features= models.TextField(max_length= 255, blank= True)
     # membership= models.TextField(max_length= 255, blank= True)
     country_image= models.ImageField(upload_to= 'photos/countries', blank=True)
-    faq=models.ForeignKey(Faq, on_delete=models.CASCADE, blank=True, null= True)
 
     class Meta:
         verbose_name= 'country' #editing name in admin panel
         verbose_name_plural= 'countries' #For printing Categories instead of Categorys
 
     def __str__(self):
-        return self.country_name
+        return self.name
 
 class Service(models.Model):
+    slug=models.CharField(max_length=50, unique= True)
     title=models.CharField(max_length=50, unique= True)
     description= models.TextField(max_length= 5000, blank= False)
     service_image= models.ImageField(upload_to= 'photos/services', blank=False)
@@ -55,7 +44,6 @@ class Service(models.Model):
     highlight2= models.TextField(max_length= 5000, blank= False)
     highlight3= models.TextField(max_length= 5000, blank= False)
     highlight4= models.TextField(max_length= 5000, blank= False)
-    faq=models.ForeignKey(Faq, on_delete=models.CASCADE, blank=True, null= True)
     is_active = models.BooleanField(default=True)
 
     class Meta:
@@ -67,18 +55,48 @@ class Service(models.Model):
 
 class Vacancy(models.Model):
     title=models.CharField(max_length=50, unique= False)
+    slug= models.CharField(max_length=50, unique= True)
     description= models.TextField(max_length= 5000, blank= False)
-    age_limit=models.CharField(max_length=50, unique= True, blank= True)
+    service_fee=models.CharField(max_length=50, default='0')
     country= models.ForeignKey(Country, on_delete=models.CASCADE, null=False, blank= False)
+    salary=models.CharField(max_length=10, default='0')
+    food=models.CharField(max_length=50, default='0')
+    accomodation=models.CharField(max_length=50, default='0')
+    processing_time=models.CharField(max_length=50, default='0')
     post_date= models.DateTimeField(default=datetime.now(), blank=True)
     last_date= models.DateTimeField(blank=True)
     is_active= models.BooleanField(default=True)
-
     class Meta:
         verbose_name= 'vacancy' #editing name in admin panel
         verbose_name_plural= 'vacancies' #For printing Categories instead of Categorys
     def __str__(self):
-        return self.title
+        return self.country.name
+
+class CountryFaq(models.Model):
+    country= models.ForeignKey(Country, on_delete=models.CASCADE, blank=True, null= True)
+    question= models.TextField(max_length= 5000, blank= False)
+    answer= models.TextField(max_length= 5000, blank= False)
+
+    class Meta:
+        verbose_name= 'CountryFaq' #editing name in admin panel
+        verbose_name_plural= 'CountryFaq(s)'
+
+    def __str__(self):
+        return self.country.name
+
+class ServiceFaq(models.Model):
+    service= models.ForeignKey(Service, on_delete=models.CASCADE, blank=True, null= True)
+    question= models.TextField(max_length= 5000, blank= False)
+    answer= models.TextField(max_length= 5000, blank= False)
+
+    class Meta:
+        verbose_name= 'ServiceFaq' #editing name in admin panel
+        verbose_name_plural= 'ServiceFaq(s)'
+
+    def __str__(self):
+        return self.service.title
+
+
 
 class Contact(models.Model):
     name=models.CharField(max_length=50, unique= False)
