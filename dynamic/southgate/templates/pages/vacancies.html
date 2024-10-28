@@ -293,7 +293,7 @@
                                                                 >
                                                                 
                                                                     <a
-                                                                        href="#"
+                                                                        href="{% url 'vacancies' country_name=vacancy.country.slug country_id=vacancy.country.id vacancy_title=vacancy.slug countryfaq_country=faqs.id %}"
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#jobDetails"
                                                                         ><img
@@ -608,7 +608,7 @@
                         <h5 class="modal-title" id="exampleModalLabel">
                         Vacancy for {{ single_vacancy.title }}
                         </h5>
-                        <button
+                        <button 
                             type="button"
                             class="btn-close"
                             data-bs-dismiss="modal"
