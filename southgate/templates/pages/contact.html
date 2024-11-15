@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+            <section
+                class="inner-banner flex-center"
+                style="background: url(./images/banner-contact.png)"
+            >
+                <div class="inner-title">
+                    <h1>Contact Us</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item">
+                                <a href="#">Home</a>
+                            </li>
+                            <li
+                                class="breadcrumb-item active"
+                                aria-current="page"
+                            >
+                                Contact
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </section>
+        </header>
+        <section class="contact-section py-5">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-lg-6 pe-lg-5">
+                        <div class="contact-form">
+                            <div class="title-head mb-5">
+                                <p class="subhead">SEND US EMAIL</p>
+                                <h1 class="mainhead">Feel free to write</h1>
+                            </div>
+                            <div class="form-details">
+                                <form method="post" class= "was-validated">
+                                	{% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <div class="form-group">
+                                                    <input name= 'name'
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="name"
+                                                        required=""
+                                                        placeholder="Enter Name"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <div class="form-group">
+                                                    <input name='email'
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="name"
+                                                        required=""
+                                                        placeholder="Enter Email"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <div class="form-group">
+                                                    <input name='phone'
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="name"
+                                                        required=""
+                                                        placeholder="Enter Phone"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <div class="form-group">
+                                                    <input name='subject'
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="name"
+                                                        required=""
+                                                        placeholder="Enter Subject"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="mb-4">
+                                                <div class="form-group">
+                                                    <textarea name='description'
+                                                        class="form-control"
+                                                        rows="5"
+                                                        placeholder="Enter Comment"
+                                                    ></textarea>
+                                                </div>
+                                            </div>
+                                            <button
+                                                type="submit"
+                                                class="btn btn-theme mt-4 pe-4 ps-4"
+                                            >
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ps-lg-5">
+                        <div class="get-in-touch">
+                            <div class="title-head mb-5">
+                                <p class="subhead">NEED ANY HELP?</p>
+                                <h1 class="mainhead">Get in touch with us</h1>
+                            </div>
+                            <div class="content">
+                                <p>
+                                    We are dedicated to making your immigration
+                                journey seamless and successful. For
+                                personalized support or inquiries, feel free to
+                                contact us. Your future awaits. Let’s embark on
+                                this journey together!
+                                </p>
+                            </div>
+                            <div class="contact-list d-flex flex-column mt-4">
+                                <div class="icon-details d-flex mt-5">
+                                    <div class="icon flex-center">
+                                        <i class="bi bi-telephone"></i>
+                                    </div>
+                                    <div class="col pe-lg-5">
+                                        <h5 class="mb-3">Call</h5>
+                                        <p>+91 79075 96575</p>
+                                    </div>
+                                </div>
+                                <div class="icon-details d-flex mt-5">
+                                    <div class="icon flex-center">
+                                        <i class="bi bi-envelope"></i>
+                                    </div>
+                                    <div class="col">
+                                        <h5 class="mb-3">Email</h5>
+                                        <p>info@southgateimmigration.com</p>
+                                    </div>
+                                </div>
+                                <div class="icon-details d-flex mt-5">
+                                    <div class="icon flex-center">
+                                        <i class="bi bi-geo-alt"></i>
+                                    </div>
+                                    <div class="col">
+                                        <h5 class="mb-3">Address</h5>
+                                        <p>
+                                            South Gate Immigration Building<br />
+                                            No: 60/602 3rd Floor
+                                                    <br />Beejay Tower, Chittoor
+                                                    Road<br />
+                                                    Rajaji Junction, Kochi<br />
+                                                    Ernakulam, Kerala - 682035.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}
